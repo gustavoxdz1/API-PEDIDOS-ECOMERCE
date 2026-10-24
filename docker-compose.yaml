@@ -7,15 +7,18 @@ services:
     container_name: pedidos-db
     restart: always
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 1914
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
       POSTGRES_DB: pedidos_db
     ports:
       - "5432:5432"
   rabbitmq:
-      image: rabbitmq:3-management
-      container_name: pedidos-rabbitmq
-      restart: always
-      ports:
-        - "5672:5672"   # Porta onde a nossa aplicação Java se conecta
-        - "15672:15672" # Porta para o painel visual no seu navegador
+    image: rabbitmq:3-management
+    container_name: pedidos-rabbitmq
+    restart: always
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBIT_USER}
+      RABBITMQ_DEFAULT_PASS: ${RABBIT_PASS}
+    ports:
+      - "5672:5672"   # Porta onde a nossa aplicação Java se conecta
+      - "15672:15672" # Porta para o painel visual no seu navegador

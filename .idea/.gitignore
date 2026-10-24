@@ -12,3 +12,5 @@
 target/
 .idea/
 *.class
+
+.env
