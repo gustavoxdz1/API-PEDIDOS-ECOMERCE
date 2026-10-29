@@ -74,8 +74,6 @@ public class PedidoRepositoryImpl implements PedidoRepository {
                 ))
                 .toList();
 
-        // Aqui, precisamos de um construtor na classe Pedido que aceite todos os atributos (inclusive os preenchidos no banco, como o status atual e o ID).
-        // Vamos precisar criar esse construtor na classe Pedido.java no próximo passo!
         return new Pedido(
                 entity.getId(),
                 entity.getUsuarioId(),
