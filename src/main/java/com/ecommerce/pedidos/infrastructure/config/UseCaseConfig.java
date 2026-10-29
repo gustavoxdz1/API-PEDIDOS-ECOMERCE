@@ -1,6 +1,7 @@
 package com.ecommerce.pedidos.infrastructure.config;
 
 import com.ecommerce.pedidos.core.domain.repositories.PedidoRepository;
+import com.ecommerce.pedidos.core.usecases.AtualizarStatusPedido;
 import com.ecommerce.pedidos.core.usecases.BuscarPedidoPorId;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,5 +15,10 @@ public class UseCaseConfig {
     @Bean
     public BuscarPedidoPorId buscarPedidoPorIdUseCase(PedidoRepository repository) {
         return new BuscarPedidoPorId(repository);
+    }
+
+    @Bean
+    public AtualizarStatusPedido atualizarStatusPedidoUseCase(PedidoRepository repository) {
+        return new AtualizarStatusPedido(repository);
     }
 }
